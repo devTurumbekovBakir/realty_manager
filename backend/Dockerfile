@@ -24,7 +24,7 @@ COPY requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/backend/wheels -r requirements.txt
 
 
-COPY .. .
+COPY . .
 
 #########
 # FINAL #
@@ -58,7 +58,7 @@ RUN sed -i 's/\r$//g'  $APP_HOME/entrypoint.sh
 RUN chmod +x  $APP_HOME/entrypoint.sh
 
 # copy project
-COPY .. $APP_HOME
+COPY . $APP_HOME
 
 # chown all the files to the app user
 RUN chown -R backend:backend $APP_HOME
